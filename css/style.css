@@ -24,8 +24,38 @@ img{
     width:800px;
     height: 400px;
     position:relative;
+    background-color: brownS;
 }
 
 .full-page{
     height: 100vh;
 }
+.pulsante{
+    position: absolute;
+    height:50px;
+    width: 50px;
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 50%;
+    left: 50%;
+    transform: translatex(-50%);
+    z-index: 1;
+}
+.up{
+    top: 10px;
+}
+.down{
+    bottom: 10px;
+}
+.item{
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.active{
+    display:block;
+}
+
