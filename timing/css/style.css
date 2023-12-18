@@ -59,4 +59,10 @@ img{
 .active{
     display:block;
 }
+.button-cicle{
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    color:red;
+    background-color: lightsalmon;
+}
 

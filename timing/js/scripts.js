@@ -62,31 +62,54 @@ let n = 0;
 const items = document.querySelectorAll(".item")
 
 console.log("gli item sono", items.length, typeof items)
+//avanti
+pulsanteUp.addEventListener("click", avanti);
+//indietro
+pulsanteDown.addEventListener("click", function () {
+items[n].classList.remove("active")
 
-pulsanteUp.addEventListener("click", function () {
-if(n < (items.length -1)){
-    items[n].classList.remove("active")
-    n++;
-    items[n].classList.add("active")
-}
-else if(n == items.length-1){
-    items[n].classList.remove("active")
-    n = 0;
-    items[n].classList.add("active")
-}
+    if(n > 0){
+        n--;
+    }
+    else if(n == 0){
+        n = items.length - 1;
+    }
+
+items[n].classList.add("active")
 
 })
 
-pulsanteDown.addEventListener("click", function () {
-    if(n > 0){
-        items[n].classList.remove("active")
-        n--;
-        items[n].classList.add("active")
+/*
+aggiungo funzionalità di switch immagine ogni 3 secondi
+*/
+
+let clock = setInterval(avanti,3000);
+//pulsante stop
+const autoPLay = document.querySelector(".button-cicle");
+
+autoPLay.addEventListener("click", function(){
+    if (clock == null){
+        clock = setInterval(avanti,3000) 
     }
-    else if(n == 0){
-        items[n].classList.remove("active")
-        n = items.length - 1;
-        items[n].classList.add("active")
+    else{
+        clearInterval(clock);
+        clock = null;
     }
-    })
+})
+
+//FUNCTION
+//funzione per andare avanti
+function avanti () {
+
+    items[n].classList.remove("active")
     
+    if(n < (items.length -1)){
+        n++;
+    }
+    else if(n == items.length-1){
+        n = 0;
+    }
+    
+    items[n].classList.add("active")
+    
+}
